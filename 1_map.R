@@ -10,11 +10,11 @@ vert <- st_read("data/in/espaces_verts/espaces_verts.shp") %>%
 #https://icon-icons.com/fr/icone/Tennis-tennis-de-table-sport-ping-pon/12566
 icon <-  makeIcon("data/in/icon_raquette.png", 18, 18)
 
-map <- leaflet(table_tennis_pts) %>%  
+map <- leaflet(table_tennis_pts, elementId = 'ping') %>%  
   addProviderTiles(providers$Stamen.TonerHybrid) %>%
   addMarkers(icon = icon) %>% 
   addPolygons(data = vert, weight=0, fillColor = 'darkgreen')
 
 
 
-saveWidget(map, file="map.html")
+saveWidget(map, file="index.html", title='ping')
